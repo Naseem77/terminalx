@@ -1,6 +1,6 @@
 import { Locator,  Page, expect } from '@playwright/test';
 import { BasePage } from '../infra/BasePage';
-import {username, password} from "../config.json";
+import {username, email, password} from "../config.json";
 
 
 export class LoginPage extends BasePage{
@@ -9,15 +9,14 @@ export class LoginPage extends BasePage{
     private emailFeild: Locator;
     private passwordFeild: Locator;
     private loginBtn: Locator;
-    private nameLabel: Locator;
+    //private nameLabel: Locator;
 
     constructor(page: Page){
         super(page);
-        this.connectBtn = page.locator('//*[@id="app-root"]/div[2]/header/div/div[2]/div[1]/div[1]/div/div/div/a');
-        this.emailFeild = page.locator('//*[@id="top-portal-root"]/div[3]/div[1]/form/div[1]/div/input');
-        this.passwordFeild = page.locator('//*[@id="top-portal-root"]/div[3]/div[1]/form/div[2]/div/input');
-        this.loginBtn = page.locator('//*[@id="top-portal-root"]/div[3]/div[1]/form/button[3]');
-        this.nameLabel = page.locator('//*[@id="app-root"]/div[2]/header/div/div[2]/div[1]/div[1]/div/div/div/button/span[2]');
+        this.connectBtn = page.locator("//div[text()='התחברות']");
+        this.emailFeild = page.locator("(//input[@name='email'])[2]");
+        this.passwordFeild = page.locator("//input[@name='password']");
+        this.loginBtn = page.locator("//button[text()='כניסה']");
         this.initPage();
     }
 
@@ -26,12 +25,10 @@ export class LoginPage extends BasePage{
     } 
 
     fillEmail = async () => {
-        await this.emailFeild.click();
-        await this.emailFeild.fill(username);
+        await this.emailFeild.type(email, {delay: 100});
     }
 
     fillPassword = async () => {
-        await this.passwordFeild.click();
         await this.passwordFeild.fill(password);
     }
 
@@ -41,13 +38,15 @@ export class LoginPage extends BasePage{
 
     fullLoginProcess = async () => {
         await this.connectUser();
+        await this.page.waitForTimeout(1000);
         await this.fillEmail();
         await this.fillPassword();
         await this.clickLogin();
     }
 
     returUserName = async (): Promise<String> => {
-        return await this.nameLabel.innerText();
+        const nameLabel = this.page.locator(`//span[text()='${username}']`);
+        return await nameLabel.innerText();
     }
    
 }
