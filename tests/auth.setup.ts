@@ -1,6 +1,7 @@
 import { Page, expect, test as setup } from '@playwright/test';
 import { BrowserWrapper } from '../infra/browserWrapper';
 import configJson from "../config.json"
+import { LoginPage } from '../logic/LoginPage';
 
 
 let browser: BrowserWrapper;
