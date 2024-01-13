@@ -1,10 +1,10 @@
 import { Locator,  Page } from '@playwright/test';
 import { BasePage } from '../infra/BasePage';
 import {username, email, password} from "../config.json";
-//import { NavBar } from './NavBar';
+import { NavBar } from './NavBar';
 
 
-export class MainPage extends BasePage{
+export class MainPage extends NavBar{
     
     private menSection: Locator;
     private tshirtSection: Locator;
@@ -22,6 +22,16 @@ export class MainPage extends BasePage{
         this.initPage();
     }
 
-    
+    addItemToCart = async () => {
+        await this.menSection.click();
+        await this.tshirtSection.click();
+        await this.firstTshirt.click();
+        await this.sizeBtn.click();
+        await this.addToCartBtn.click();
+    }
+
+    getItemCountInCart = async () => {
+        return await this.getItemCount();
+    }
    
 }
