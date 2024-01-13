@@ -7,6 +7,7 @@ export class NavBar extends BasePage{
     private connectAccBtn: Locator;
     private myListBtn: Locator;
     private cartBtn: Locator;
+    private itemCountInCart: Locator;
 
     constructor(page: Page){
         super(page);
@@ -27,5 +28,6 @@ export class NavBar extends BasePage{
     openCart =async () => {
         await this.cartBtn.click();
     }
+
    
 }
