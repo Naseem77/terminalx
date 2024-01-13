@@ -1,6 +1,4 @@
 import { Locator,  Page } from '@playwright/test';
-import { BasePage } from '../infra/BasePage';
-import {username, email, password} from "../config.json";
 import { NavBar } from './NavBar';
 
 
