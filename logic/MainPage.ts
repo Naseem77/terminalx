@@ -21,5 +21,7 @@ export class MainPage extends BasePage{
         this.addToCartBtn = page.locator("//button[text()='הוספה לסל']");
         this.initPage();
     }
+
+    
    
 }

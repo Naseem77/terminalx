@@ -7,7 +7,6 @@ export class NavBar extends BasePage{
     private connectAccBtn: Locator;
     private myListBtn: Locator;
     private cartBtn: Locator;
-    private itemCountInCart: Locator;
 
     constructor(page: Page){
         super(page);
@@ -29,5 +28,8 @@ export class NavBar extends BasePage{
         await this.cartBtn.click();
     }
 
-   
+    getItemCount =async () => {
+        const itemCountInCart = this.page.locator("//span[@class='item-count_3Yeu']");
+        return await itemCountInCart.innerText();
+    }
 }
