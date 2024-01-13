@@ -36,6 +36,3 @@ export class MainPage extends NavBar {
     }
 
 }
-//a[@data-test-id="qa-product-link"]
-//  this.firstTshirt = page.locator("//div[contains(@class,'image-container')]//img[1]");
-//a[class="tx-link-a"]
