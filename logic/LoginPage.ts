@@ -1,16 +1,16 @@
-import { Locator,  Page, expect } from '@playwright/test';
+import { Locator, Page, expect } from '@playwright/test';
 import { BasePage } from '../infra/BasePage';
-import {username, email, password} from "../config.json";
+import { username, email, password } from "../config.json";
 import { NavBar } from './NavBar';
 
 
-export class LoginPage extends NavBar{
-    
+export class LoginPage extends NavBar {
+
     private emailFeild: Locator;
     private passwordFeild: Locator;
     private loginBtn: Locator;
 
-    constructor(page: Page){
+    constructor(page: Page) {
         super(page);
         this.emailFeild = page.locator("(//input[@name='email'])[2]");
         this.passwordFeild = page.locator("//input[@name='password']");
@@ -20,7 +20,7 @@ export class LoginPage extends NavBar{
 
     connectUser = async () => {
         await this.clickConnectAccBtn();
-    } 
+    }
 
     fillEmail = async () => {
         await this.emailFeild.fill(email);
@@ -46,5 +46,5 @@ export class LoginPage extends NavBar{
         const nameLabel = this.page.locator(`//span[text()='${username}']`);
         return await nameLabel.innerText();
     }
-   
+
 }
