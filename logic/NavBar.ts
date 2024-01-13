@@ -27,5 +27,9 @@ export class NavBar extends BasePage{
     openCart =async () => {
         await this.cartBtn.click();
     }
-   
+
+    getItemCount =async () => {
+        const itemCountInCart = this.page.locator("//span[@class='item-count_3Yeu']");
+        return await itemCountInCart.innerText();
+    }
 }
