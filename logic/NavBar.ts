@@ -28,7 +28,7 @@ export class NavBar extends BasePage{
         await this.cartBtn.click();
     }
 
-    getItemCount = async () => {
+    getItemCount = async (): Promise<String>  => {
         const itemCountInCart = this.page.locator("//span[@class='item-count_3Yeu'][2]");
         return await itemCountInCart.innerText();
     }
@@ -43,7 +43,7 @@ export class NavBar extends BasePage{
         await confirmBtn.click();
     }
 
-    getFavoritsCount = async () => {
+    getFavoritsCount = async (): Promise<String> => {
         const favoritsCount = this.page.locator("//span[@class='item-count_3Yeu'][1]");
         return await favoritsCount.innerText();
     }
