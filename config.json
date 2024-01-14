@@ -1,5 +1,6 @@
 {
     "authFile":"playwright/.auth/user.json",
     "email": "naseem-ali@hotmail.com",
-    "password": "Naseem123n!"
+    "password": "Naseem123n!",
+    "men-shirts-url": "https://www.terminalx.com/men/shirts",
 }
