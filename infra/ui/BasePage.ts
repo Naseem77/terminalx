@@ -7,12 +7,16 @@ export class BasePage {
         this.page = page;
     }
 
-    async initPage() {
-        await this.page.waitForLoadState('networkidle')
+    async initPage(){
+        await this.page.waitForLoadState()
     }
 
     async getCurrentURL(): Promise<string> {
         return this.page.url();
+    }
+
+    async refreshPage(){
+        await this.page.reload();
     }
 
 }
