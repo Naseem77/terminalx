@@ -8,11 +8,15 @@ export class BasePage {
     }
 
     async initPage(){
-        await this.page.waitForLoadState('networkidle')
+        await this.page.waitForLoadState()
     }
 
     async getCurrentURL(): Promise<string> {
         return this.page.url();
+    }
+
+    async refreshPage(){
+        await this.page.reload();
     }
 
 }

@@ -1,0 +1,13 @@
+{
+    "api" : {
+        "CartApiUrl": "https://www.terminalx.com/pg/MutationAddAnyProductsToAnyCart?v=t4MeNg4Nhm8cTtfc8ZbCpP00Dzo%3D",
+        "AddItemToWishListApiUrl": "https://www.terminalx.com/pg/MutationAddProductsToWishlist?v=o%2Fi6SZVDy2k6kuJd8zRFtjUC6Hs%3D",
+        "RemoveItemFromWishListApiUrl": "https://www.terminalx.com/pg/MutationRemoveProductsFromAnyWishlistById?v=h287aaTZzqucFBm5bEc305ztqE8%3D"
+    },
+    "ui" : {
+        "url": "https://www.terminalx.com",
+        "CartUrl" : "https://www.terminalx.com/checkout/cart",
+        "loginUrl":"https://www.terminalx.com/pg/MutationUserLogin",
+        "wishListUrl": "https://www.terminalx.com/wishlist/items"
+    }
+}

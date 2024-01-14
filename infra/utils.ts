@@ -1,6 +1,6 @@
 import { Locator } from "playwright";
 
-const waitForElementToBeVisibale = async (locator:Locator,time:number,retry:number):Promise<boolean> => {
+export const waitForElementToBeVisible = async (locator:Locator,time=400,retry=5):Promise<boolean> => {
 
     while(retry >0){
        if(await locator.isVisible()){
@@ -12,7 +12,7 @@ const waitForElementToBeVisibale = async (locator:Locator,time:number,retry:numb
     return false
 }
 
-const waitForElementToBeEnabels = async (locator:Locator,time:number,retry:number):Promise<boolean> => {
+export const waitForElementToBeEnabels = async (locator:Locator,time:number,retry:number):Promise<boolean> => {
 
     while(retry >0){
        if(await locator.isEnabled()){
@@ -24,6 +24,6 @@ const waitForElementToBeEnabels = async (locator:Locator,time:number,retry:numbe
     return false
 }
 
-function delay(ms: number) {
+export function delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }
