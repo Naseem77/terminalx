@@ -1,14 +1,14 @@
-import { Locator,  Page, expect } from '@playwright/test';
+import { Locator, Page, expect } from '@playwright/test';
 import { BasePage } from '../infra/BasePage';
 
 
-export class NavBar extends BasePage{
-    
+export class NavBar extends BasePage {
+
     private connectAccBtn: Locator;
     private myListBtn: Locator;
     private cartBtn: Locator;
 
-    constructor(page: Page){
+    constructor(page: Page) {
         super(page);
         this.connectAccBtn = page.locator("//div[text()='התחברות']/..");
         this.myListBtn = page.locator("(//div[@class='cart-and-wishlist_3PHw']//a)[1]");
@@ -28,8 +28,8 @@ export class NavBar extends BasePage{
         await this.cartBtn.click();
     }
 
-    getItemCount = async (): Promise<String>  => {
-        const itemCountInCart = this.page.locator("//span[@class='item-count_3Yeu'][2]");
+    getItemCount = async (): Promise<String> => {
+        const itemCountInCart = this.page.locator("//span[@class='item-count_3Yeu'][1]");
         return await itemCountInCart.innerText();
     }
 
