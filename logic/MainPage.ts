@@ -9,7 +9,7 @@ export class MainPage extends NavBar {
     private firstTshirt: Locator;
     private sizeBtn: Locator;
     private addToCartBtn: Locator;
-    private myListBtn: Locator;
+    private favoritsBtn: Locator;
 
     constructor(page: Page) {
         super(page);
@@ -18,7 +18,7 @@ export class MainPage extends NavBar {
         this.firstTshirt = page.locator("//a[@data-test-id='qa-product-link']");
         this.sizeBtn = page.locator("//div[text()='S']");
         this.addToCartBtn = page.locator("//button[text()='הוספה לסל']");
-        this.myListBtn = page.locator("//button[@class='toggle_3KGH rtl_fPrD']");
+        this.favoritsBtn = page.locator("//button[@class='toggle_3KGH rtl_fPrD']");
         //this.initPage();
     }
 
@@ -40,7 +40,7 @@ export class MainPage extends NavBar {
     }
 
     addItemToFavorits = async () => {
-        await this.myListBtn.click();
+        await this.favoritsBtn.click();
     }
 
 }
