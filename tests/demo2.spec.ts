@@ -13,6 +13,10 @@ test("add item to cart", async ({ page }) => {
     await mainPage.addItemToCart();
     const count = await mainPage.getItemCountInCart();
     expect(count).toBe('1');
+
+    await mainPage.removeItemFromCart();
+    const count2 = await mainPage.getItemCountInCart();
+    expect(count2).toBe(null);
 })
 
 

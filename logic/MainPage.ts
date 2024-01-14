@@ -29,6 +29,10 @@ export class MainPage extends NavBar {
         await this.addToCartBtn.click();
     }
 
+    removeItemFromCart = async () => {
+        return await this.removeItem();
+    }
+
     getItemCountInCart = async () => {
         return await this.getItemCount();
     }
