@@ -29,7 +29,7 @@ export class NavBar extends BasePage{
     }
 
     getItemCount = async () => {
-        const itemCountInCart = this.page.locator("//span[@class='item-count_3Yeu']");
+        const itemCountInCart = this.page.locator("//span[@class='item-count_3Yeu'][2]");
         return await itemCountInCart.innerText();
     }
 
@@ -41,5 +41,10 @@ export class NavBar extends BasePage{
         await this.page.waitForTimeout(500);
         const confirmBtn = this.page.locator("//button[text()='אישור']");
         await confirmBtn.click();
+    }
+
+    getFavoritsCount = async () => {
+        const favoritsCount = this.page.locator("//span[@class='item-count_3Yeu'][1]");
+        return await favoritsCount.innerText();
     }
 }
