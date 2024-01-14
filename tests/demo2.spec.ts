@@ -4,7 +4,7 @@ import { BrowserWrapper } from '../infra/browserWrapper';
 import configJson from "../config.json";
 import { FilterItems } from '../logic/FilterItemsPage';
 
-test("add item to cart", async ({ page }) => {
+test("Fillter items ", async ({ page }) => {
     await page.goto("https://www.terminalx.com/men/shirts");
     const filterItems = new FilterItems(page);
     await filterItems.filterBy("BEST OFFER");
