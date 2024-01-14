@@ -15,7 +15,7 @@ export class LoginPage extends NavBar {
         this.emailFeild = page.locator("(//input[@name='email'])[2]");
         this.passwordFeild = page.locator("//input[@name='password']");
         this.loginBtn = page.locator("//button[text()='כניסה']");
-        this.initPage();
+        //this.initPage();
     }
 
     connectUser = async () => {

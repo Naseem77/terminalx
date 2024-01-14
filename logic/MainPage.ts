@@ -17,7 +17,7 @@ export class MainPage extends NavBar {
         this.firstTshirt = page.locator("//a[@data-test-id='qa-product-link']");
         this.sizeBtn = page.locator("//div[text()='S']");
         this.addToCartBtn = page.locator("//button[text()='הוספה לסל']");
-        this.initPage();
+        //this.initPage();
     }
 
     addItemToCart = async () => {
@@ -25,9 +25,7 @@ export class MainPage extends NavBar {
         await this.tshirtSection.click();
         await this.firstTshirt.first().click();
         await this.page.waitForTimeout(1000);
-
         await this.sizeBtn.click();
-
         await this.addToCartBtn.click();
     }
 
