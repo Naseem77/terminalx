@@ -2,5 +2,8 @@
     "first_name": "moshe",
     "last_name": "kohen",
     "city": "hebron",
+    "street": "21 jump street",
+    "house_num": "21",
+    "mikood": "9100000",
     "phone": "0524789652"
 }
