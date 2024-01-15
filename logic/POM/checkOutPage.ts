@@ -1,11 +1,12 @@
 import {type Locator, type Page } from '@playwright/test';
 import { BasePage } from '../../infra/ui/BasePage';
-import { waitForElementToBeVisible } from '../../infra/utils';
+import { waitForElementToBeVisible, waitForTimeOut } from '../../infra/utils';
 
 export class CheckOutPage extends BasePage {
 
     private cartItems: Locator
     private deleteItemButton: Locator
+    private cartEmptyMessage: Locator
    
     constructor(page: Page){
         super(page);
@@ -31,5 +32,11 @@ export class CheckOutPage extends BasePage {
           }
           await this.deleteItemButton.nth(i).click();
         }
+    }
+
+    async validateCartEmptyMessage(){
+      this.cartEmptyMessage = this.page.locator("//p[text()='סל הקניות שלך ריק.']")
+      const res = await this.cartEmptyMessage.isVisible()
+      return res
     }
 }
