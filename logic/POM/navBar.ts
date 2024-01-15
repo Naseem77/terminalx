@@ -11,7 +11,6 @@ export class NavBar extends BasePage {
 
     constructor(page: Page) {
         super(page);
-        this.connectAccBtn = page.locator("//div[text()='התחברות']/..");//change
         this.myListBtn = page.locator("(//div[@class='cart-and-wishlist_3PHw']//a)[1]");
         this.cartBtn = page.locator("(//div[@class='cart-and-wishlist_3PHw']//a)[2]");
         //this.initPage();
