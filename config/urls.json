@@ -1,15 +1,27 @@
 {
-    "api" : {
+    "api": {
         "CartApiUrl": "https://www.terminalx.com/pg/MutationAddAnyProductsToAnyCart?v=t4MeNg4Nhm8cTtfc8ZbCpP00Dzo%3D",
         "AddItemToWishListApiUrl": "https://www.terminalx.com/pg/MutationAddProductsToWishlist?v=o%2Fi6SZVDy2k6kuJd8zRFtjUC6Hs%3D",
         "RemoveItemFromWishListApiUrl": "https://www.terminalx.com/pg/MutationRemoveProductsFromAnyWishlistById?v=h287aaTZzqucFBm5bEc305ztqE8%3D"
     },
-    "ui" : {
+    "ui": {
         "url": "https://www.terminalx.com",
-        "CartUrl" : "https://www.terminalx.com/checkout/cart",
-        "loginUrl":"https://www.terminalx.com/pg/MutationUserLogin",
+        "CartUrl": "https://www.terminalx.com/checkout/cart",
+        "loginUrl": "https://www.terminalx.com/pg/MutationUserLogin",
         "wishListUrl": "https://www.terminalx.com/wishlist/items",
         "menShirtsUrl": "https://www.terminalx.com/men/shirts",
         "shirtProductPageUrl": "https://www.terminalx.com/men/shirts/z104765410?color=9014"
+    },
+    "categorys": {
+        "JustLanded": "/justlanded",
+        "on-sale": "/on-sale",
+        "women": "/women",
+        "men": "/men",
+        "baby": "/baby",
+        "brands": "/brands",
+        "sports": "/sports",
+        "beauty": "/beauty",
+        "home-lifestyle": "/home-lifestyle",
+        "premium": "/premium"
     }
 }

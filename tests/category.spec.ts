@@ -20,8 +20,8 @@ test.describe('Filter Items Validation', () => {
 
     test(`Category`, async () => {
         category = await browser.createNewPage(Category)
-        await browser.navigateTo(urls.ui.menShirtsUrl)
-
+        await browser.navigateTo(urls.ui.url)
+        category.categoryClick(urls.categorys.JustLanded);
 
     });
 
