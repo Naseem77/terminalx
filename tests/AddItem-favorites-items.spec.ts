@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { BrowserWrapper } from '../infra/ui/browserWrapper'
-import { addItem2Fav } from '../config/items.json'
-import { setAddItemToFavoritestRequest } from '../logic/api/request-body/addItemToFavoritesRequest'
-import urls from '../config/urls.json'
+import { BrowserWrapper } from '../infra/ui/browserWrapper';
+import { addItem2Fav } from '../config/items.json';
+import { setAddItemToFavoritestRequest } from '../logic/api/request-body/addItemToFavoritesRequest';
+import urls from '../config/urls.json';
 import { FavoritesListPage } from '../logic/POM/favoritesListPage';
 import { ApiCalls } from '../logic/api/apiCalls';
 

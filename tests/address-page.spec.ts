@@ -21,5 +21,8 @@ test.describe('address page tests', () => {
     addressPage = await browser.createNewPage(AddressPage);
     await browser.navigateTo(urls.ui.newAddressUrl);
     await addressPage.fillAddressData(first_name, last_name, city, street, house_num, mikood, phone);    
+    await addressPage.validateAddressChanged();
+    await page.waitForURL(urls.ui.addressPage);
+    expect(page.url()).toBe(urls.ui.addressPage);
   });
 });
