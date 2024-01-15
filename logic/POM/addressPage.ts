@@ -17,6 +17,11 @@ export class addressPage extends NavBar {
         this.phoneNumFeild = page.locator("//input[@name='telephone']");
     }
 
-    
+    fillAddressData = async (fNAme, lName, city, phone) => {
+        await this.firstNameFeild.fill(fNAme);
+        await this.lastNameFeild.fill(lName);
+        await this.cityFeild.fill(city);
+        await this.phoneNumFeild.fill(phone);
+    }
 
 }
