@@ -1,7 +1,8 @@
 import { Locator, Page } from '@playwright/test';
 import { NavBar } from './navBar';
+import { waitForTimeOut } from '../../infra/utils';
 
-export class addressPage extends NavBar {
+export class AddressPage extends NavBar {
 
     private firstNameFeild: Locator;
     private lastNameFeild: Locator;
@@ -25,7 +26,7 @@ export class addressPage extends NavBar {
         this.confirmBtn = page.locator("//button[text()='שמירת כתובת']");
     }
 
-    fillAddressData = async (fNAme, lName, city,street, houseNum, mikood phone) => {
+    fillAddressData = async (fNAme, lName, city,street, houseNum, mikood, phone) => {
         await this.firstNameFeild.fill(fNAme);
         await this.lastNameFeild.fill(lName);
         await this.cityFeild.fill(city);
@@ -34,6 +35,13 @@ export class addressPage extends NavBar {
         await this.mikoodFeild.fill(mikood);
         await this.phoneNumFeild.fill(phone);
         await this.confirmBtn.click();
+        await waitForTimeOut(this.page, 8000);
+    }
+
+    validateAddressChanged = async () => {
+        const label = this.page.locator('//*[@id="app-root"]/div[2]/main/div[2]/div/div/div/div[2]/div[3]');
+        const text = await label.innerText();
+        return text;
     }
 
 }
