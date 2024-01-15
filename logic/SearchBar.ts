@@ -1,3 +1,4 @@
+import { promises } from "dns";
 import { BasePage } from "../infra/BasePage";
 import { Locator, Page } from '@playwright/test';
 
@@ -6,7 +7,6 @@ export class SearchItems extends BasePage {
 
     private searchBarBtn: Locator;
     private searchBarInput: Locator;
-    private searchResultBtn: Locator;
 
 
     constructor(page: Page) {
@@ -24,6 +24,14 @@ export class SearchItems extends BasePage {
 
 
     }
+
+    checkForSearch = async (search: string): Promise<boolean> => {
+        const searchResult = this.page.locator(`//li[contains(text(),"${search}")]`)
+        const count = await searchResult.count();
+        return count > 0;
+    }
+
+
 
 
 
