@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { BrowserWrapper } from '../infra/ui/browserWrapper'
-import { item1ToCart,item2ToCart } from '../items.json'
+import { item1ToCart,item2ToCart } from '../config/items.json'
 import { setAddItemToCartRequest } from '../logic/api/request-body/addItemToCartReuqest';
-import urls from '../urls.json'
+import urls from '../config/urls.json'
 import { CheckOutPage } from '../logic/POM/checkOutPage';
 import { ApiCalls } from '../logic/api/apiCalls';
 

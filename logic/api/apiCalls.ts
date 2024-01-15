@@ -1,7 +1,7 @@
 import { postRequest } from "../../infra/api/apiRequest";
 import {AddItemToCartResponse} from './response-body/addItemToCartResponse'
 import { AddItemToFavoritesResponse } from './response-body/addItemToFavoritesResponse'
-import urls from '../../urls.json'
+import urls from '../../config/urls.json'
 import { APIRequestContext } from "@playwright/test";
 import { RemoveItemToFavoritesResponse } from "./response-body/removeItemFromFavoritesResponse";
 

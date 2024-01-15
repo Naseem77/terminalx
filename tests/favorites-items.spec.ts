@@ -1,11 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { chromium, Browser, Page } from 'playwright';
 import { BrowserWrapper } from '../infra/ui/browserWrapper'
-import { addItem2Fav, removeItem2Fav} from '../items.json'
-
+import { addItem2Fav, removeItem2Fav} from '../config/items.json'
 import { setRemoveItemToFavoritestRequest } from '../logic/api/request-body/removeItemFromFavorites';
 import { setAddItemToFavoritestRequest } from '../logic/api/request-body/addItemToFavoritesRequest'
-import urls from '../urls.json'
+import urls from '../config/urls.json'
 import { FavoritesListPage } from '../logic/POM/favoritesListPage';
 import { ApiCalls } from '../logic/api/apiCalls';
 
@@ -37,7 +35,6 @@ test.describe('Cart Items Tests', () => {
   });
 
   test('Add Item to Favorites via Ui -> remove Item from Favorites via API -> validate item removed via ui', async () => {
-    //missing adding item to fav list via ui
     favoritesListPage = await browser.createNewPage(FavoritesListPage)
     await browser.navigateTo(urls.ui.wishListUrl)
     const addItemData = setRemoveItemToFavoritestRequest(removeItem2Fav);

@@ -1,6 +1,6 @@
 import { test as setup } from '@playwright/test';
-import url from '../urls.json'
-import config from '../config.json'
+import url from '../config/urls.json'
+import config from '../config/config.json'
 import { ApiCalls } from '../logic/api/apiCalls';
 
 setup('authentication', async ({ request }) => {
