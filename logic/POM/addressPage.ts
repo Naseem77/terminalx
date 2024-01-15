@@ -25,10 +25,13 @@ export class addressPage extends NavBar {
         this.confirmBtn = page.locator("//button[text()='שמירת כתובת']");
     }
 
-    fillAddressData = async (fNAme, lName, city, phone) => {
+    fillAddressData = async (fNAme, lName, city,street, houseNum, mikood phone) => {
         await this.firstNameFeild.fill(fNAme);
         await this.lastNameFeild.fill(lName);
         await this.cityFeild.fill(city);
+        await this.streetFeild.fill(street);
+        await this.homeNumFeild.fill(houseNum);
+        await this.mikoodFeild.fill(mikood);
         await this.phoneNumFeild.fill(phone);
         await this.confirmBtn.click();
     }
