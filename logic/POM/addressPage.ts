@@ -27,21 +27,25 @@ export class AddressPage extends NavBar {
     }
 
     fillAddressData = async (fNAme, lName, city,street, houseNum, mikood, phone) => {
+        await this.firstNameFeild.click();
         await this.firstNameFeild.fill(fNAme);
+        await this.lastNameFeild.click();
         await this.lastNameFeild.fill(lName);
+        await this.cityFeild.click();
         await this.cityFeild.fill(city);
+        await this.streetFeild.click();
         await this.streetFeild.fill(street);
+        await this.homeNumFeild.click();
         await this.homeNumFeild.fill(houseNum);
+        await this.mikoodFeild.click();
         await this.mikoodFeild.fill(mikood);
+        await this.phoneNumFeild.click();
         await this.phoneNumFeild.fill(phone);
-        await this.confirmBtn.click();
-        await waitForTimeOut(this.page, 8000);
     }
 
     validateAddressChanged = async () => {
-        const label = this.page.locator('//*[@id="app-root"]/div[2]/main/div[2]/div/div/div/div[2]/div[3]');
-        const text = await label.innerText();
-        return text;
+        await waitForTimeOut(this.page);
+        await this.confirmBtn.click();
     }
 
 }
