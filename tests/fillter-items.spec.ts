@@ -5,15 +5,15 @@ import { FilterItemsPage } from '../logic/POM/FilterItemsPage';
 
 test.describe('Filter Items Validation', () => {
     let browser: BrowserWrapper;
-    let filterItemPage : FilterItemsPage
+    let filterItemPage: FilterItemsPage
 
     test.beforeEach(async () => {
         browser = new BrowserWrapper();
-      });
-    
-      test.afterEach(async () => {
+    });
+
+    test.afterEach(async () => {
         await browser.closeBrowser();
-      });
+    });
 
     const filterData = [
         { filter: 'מבצע', expected: 'מבצע' },
@@ -24,7 +24,7 @@ test.describe('Filter Items Validation', () => {
     ];
 
     filterData.forEach(({ filter, expected }) => {
-        test(`filter items from shirts page -> check that ${filter} same as ${expected}`, async ({ page }) => {
+        test(`filter items from shirts page -> check that ${filter} same as ${expected}`, async () => {
             filterItemPage = await browser.createNewPage(FilterItemsPage)
             await browser.navigateTo(urls.ui.menShirtsUrl)
             await filterItemPage.filterBy(filter);

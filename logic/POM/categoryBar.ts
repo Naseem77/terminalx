@@ -2,26 +2,19 @@ import { Page } from "@playwright/test";
 import { BasePage } from "../../infra/ui/BasePage";
 
 export class Category extends BasePage {
+    private categoryLocator = (categoryName: string) =>
+        this.page.locator(`//a[@href="${categoryName}"]`).first()
 
     constructor(page: Page) {
         super(page)
     }
 
-
     categoryClick = async (categoryName: string) => {
-
-
-        const categoryLocator = this.page.locator(`//li[contains(@class,'item')]//a[contains(text(),'${categoryName}')]`);
-
-
-        try {
-            await categoryLocator.waitFor({ state: 'visible', timeout: 5000 }); // timeout is in milliseconds
-            categoryLocator.first().click();
-
-        } catch (e) {
-            console.error(`Element with text "${categoryName}" not visible within timeout:`, e);
-        }
+        await this.categoryLocator(categoryName).click();
 
     }
-
+    checkForCategory = async (category: string): Promise<boolean> => {
+        const url = this.page.url();
+        return url.includes(category) ? true : false;
+    }
 }
