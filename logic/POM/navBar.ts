@@ -1,5 +1,6 @@
 import { Locator, Page, expect } from '@playwright/test';
 import { BasePage } from '../../infra/ui/BasePage';
+import { waitForTimeOut } from '../../infra/utils';
 
 
 export class NavBar extends BasePage {
@@ -10,7 +11,6 @@ export class NavBar extends BasePage {
 
     constructor(page: Page) {
         super(page);
-        this.connectAccBtn = page.locator("//div[text()='התחברות']/..");//change
         this.myListBtn = page.locator("(//div[@class='cart-and-wishlist_3PHw']//a)[1]");
         this.cartBtn = page.locator("(//div[@class='cart-and-wishlist_3PHw']//a)[2]");
         //this.initPage();
@@ -35,7 +35,7 @@ export class NavBar extends BasePage {
 
     removeItem = async () => {
         await this.cartBtn.click();
-        await this.page.waitForTimeout(500);//change for all to be in utils
+        await waitForTimeOut(this.page)
         const removeBtn = this.page.locator("//div[@data-tip='הסר פריט']/button[1]");
         await removeBtn.click();
         await this.page.waitForTimeout(500);

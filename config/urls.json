@@ -10,7 +10,10 @@
         "loginUrl": "https://www.terminalx.com/pg/MutationUserLogin",
         "wishListUrl": "https://www.terminalx.com/wishlist/items",
         "menShirtsUrl": "https://www.terminalx.com/men/shirts",
-        "shirtProductPageUrl": "https://www.terminalx.com/men/shirts/z104765410?color=9014"
+       "shirtProductPageUrl": "https://www.terminalx.com/men/shirts/z104765410?color=9014",
+        "newAddressUrl": "https://www.terminalx.com/customer/address/new",
+        "shoesProductPageUrl": "https://www.terminalx.com/x967010001?color=4"
+ 
     },
     "categorys": {
         "JustLanded": "/justlanded",
@@ -22,6 +25,6 @@
         "sports": "/sports",
         "beauty": "/beauty",
         "home-lifestyle": "/home-lifestyle",
-        "premium": "/premium"
+        "premium": "/premium"       
     }
 }

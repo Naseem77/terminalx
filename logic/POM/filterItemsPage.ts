@@ -1,5 +1,6 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from '../../infra/ui/BasePage';
+import { waitForTimeOut } from '../../infra/utils';
 
 
 export class FilterItemsPage extends BasePage {
@@ -14,7 +15,7 @@ export class FilterItemsPage extends BasePage {
 
     filterBy = async (filter: string) => {
         await this.filterSelector.selectOption(filter);
-        await this.page.waitForTimeout(2000);// this need to be changed!
+        await waitForTimeOut(this.page ,2000);
     }
 
     checkForFilter = async (filter: string): Promise<boolean> => {

@@ -21,8 +21,8 @@ test.describe('Search For Items In SearchBar', () => {
         test(`search for ${searchItem} -> validate results as the ${expected} `, async () => {
             search = await browser.createNewPage(SearchItems)
             await browser.navigateTo(config.ui.url)
-            await search.fillSearchInput(searchItem, searchItem);
-            expect(search.checkForSearch(expected)).toBeTruthy()
+            await search.fillSearchProcess(searchItem, searchItem);
+            await expect(await search.getSearchTitle(expected)).toBeVisible()
 
         });
     })
