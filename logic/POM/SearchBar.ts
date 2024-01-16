@@ -18,7 +18,7 @@ export class SearchItems extends BasePage {
     fillSearchProcess = async (searchBarInput: string, searchResultview: string) => {
         await this.searchBarBtn.click();
         await this.searchBarInput.fill(searchBarInput)
-        const searchResultBtn = this.page.locator(`//a[contains(text(),"${searchResultview}")]`);
+        const searchResultBtn = this.page.locator(`//a[contains(text(),"${searchResultview}")]`);///must change
         await searchResultBtn.click();
     }
 

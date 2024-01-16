@@ -10,7 +10,6 @@ export class FilterItemsPage extends BasePage {
     constructor(page: Page) {
         super(page);
         this.filterSelector = page.locator("//select[@name='sortField']");
-        //this.initPage();
     }
 
     filterBy = async (filter: string) => {
@@ -18,7 +17,7 @@ export class FilterItemsPage extends BasePage {
         await waitForTimeOut(this.page ,2000);
     }
 
-    checkForFilter = async (filter: string): Promise<boolean> => {
+    validateFilterUrl = async (filter: string): Promise<boolean> => {
         const url = this.page.url();
         return url.includes(filter) ? true : false;
     }

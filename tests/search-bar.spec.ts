@@ -23,8 +23,7 @@ test.describe('Search For Items In SearchBar', () => {
 
     searchData.forEach(({ searchItem, expected }) => {
         test(`search for ${searchItem} -> validate results as the ${expected} `, async () => {
-            searchPage = await browser.createNewPage(SearchItems)
-            await browser.navigateTo(config.ui.url)
+            searchPage = await browser.createNewPage(SearchItems, config.ui.url)
             await searchPage.fillSearchProcess(searchItem, searchItem);
             await expect(searchPage.getSearchTitle(expected)).toBeVisible()
         });
