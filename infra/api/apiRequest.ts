@@ -1,7 +1,7 @@
 import { APIRequestContext, APIResponse, request } from "@playwright/test"
 
 
-const putRequest = async<T> (url:string,data:any) => {
+const putRequest = async<T> (url : string, data : any) => {
     const myRequest = await request.newContext()
     return await myRequest.put(url,{
     data:{data},

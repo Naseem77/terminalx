@@ -8,32 +8,25 @@ import { ApiCalls } from '../logic/api/apiCalls';
 
 test.describe('Cart Items Tests', () => {
   let browser: BrowserWrapper;
-  let apiCall: ApiCalls;
-  let checkoutPage: CheckOutPage;
-
-  test.beforeEach(async () => {
-    browser = new BrowserWrapper();
-    apiCall = new ApiCalls();
-  });
 
   test.afterEach(async () => {
-    await browser.navigateTo(urls.ui.CartUrl)
+    const checkoutPage = await browser.createNewPage(CheckOutPage,urls.ui.CartUrl)
     await checkoutPage.deleteAllCartItems();
     await browser.closeBrowser();
   });
   
   test('Adding two Item to cart via API -> validating 2 items in cart via ui', async () => {
-    checkoutPage = await browser.createNewPage(CheckOutPage)
-    await browser.navigateTo(urls.ui.CartUrl)
+    browser = new BrowserWrapper();
+    const checkoutPage = await browser.createNewPage(CheckOutPage,urls.ui.CartUrl)
 
     const addItemData1 = setAddItemToCartRequest(item1ToCart);
+    const apiCall = new ApiCalls();
     await apiCall.addItemToCart(addItemData1)
     const addItemData2 = setAddItemToCartRequest(item2ToCart);
-    const response = await apiCall.addItemToCart(addItemData2);
+   await apiCall.addItemToCart(addItemData2);
 
-    await checkoutPage.refreshPage()
-    expect(await checkoutPage.getItemsCount()).toBe(response?.data.addAnyProductsToAnyCart.total_quantity)
-
+    await checkoutPage.refreshPage()    
+    expect(2).toBe(await checkoutPage.getItemsCount())
   });
 
 

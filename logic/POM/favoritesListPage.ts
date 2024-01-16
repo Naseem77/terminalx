@@ -6,12 +6,15 @@ export class FavoritesListPage extends BasePage {
 
     private favoritesItems: Locator
     private deleteItemButton: Locator
+    private favoritesFirstItem: Locator
    
     constructor(page: Page){
         super(page);
         this.initPage();
         this.favoritesItems = this.page.locator("//div[@class='title-wrap_2RT2']/following-sibling::div/li")
         this.deleteItemButton = this.page.locator("//div[@class='btn-ltr_35WF btn-quick_3Pv7 btn-remove_274T']")
+        this.favoritesFirstItem = this.page.locator("(//div[@class='title-wrap_2RT2']/following-sibling::div/li)[1]")
+
     }
     async getItemsCount(){
         const result = await waitForElementToBeVisible(this.favoritesItems.first())
@@ -30,5 +33,9 @@ export class FavoritesListPage extends BasePage {
           }
           await this.deleteItemButton.nth(i).click();
         }
+    }
+
+    async validateCartEmptyMessage(){
+      return await this.favoritesFirstItem.isVisible()
     }
 }

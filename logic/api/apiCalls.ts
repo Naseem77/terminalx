@@ -4,6 +4,7 @@ import { AddItemToFavoritesResponse } from './response-body/addItemToFavoritesRe
 import urls from '../../config/urls.json'
 import { APIRequestContext } from "@playwright/test";
 import { RemoveItemToFavoritesResponse } from "./response-body/removeItemFromFavoritesResponse";
+import { AddNewAddressResponse } from './response-body/addNewAddressReponse'
 
 export class ApiCalls{
 
@@ -24,6 +25,11 @@ export class ApiCalls{
 
     async RemoveItemFromFavorites(data: any): Promise<RemoveItemToFavoritesResponse>{
         const result = await postRequest(urls.api.RemoveItemFromWishListApiUrl ,data)
+        return await result.json()
+    }
+
+    async AddNewAddress(data: any): Promise<AddNewAddressResponse>{
+        const result = await postRequest(urls.api.AddNewAddressApiUrl ,data)
         return await result.json()
     }
 

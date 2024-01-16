@@ -2,27 +2,32 @@ import { test, expect } from '@playwright/test';
 import { BrowserWrapper } from '../infra/ui/browserWrapper'
 import urls from '../config/urls.json'
 import { AddressPage } from '../logic/POM/addressPage';
-import {first_name, last_name, city, street, house_num, mikood, phone} from "../config/addressInfo.json";
-import { waitForTimeOut } from '../infra/utils';
+import {firstName, lastName, city, street, houseNumber, postCode, phone, countryId} from "../config/addressInfo.json";
+import { ApiCalls } from '../logic/api/apiCalls';
+import { setAddAddressRequest } from '../logic/api/request-body/addNewAddressRequest';
 
 test.describe('address page tests', () => {
   let browser: BrowserWrapper;
-  let addressPage: AddressPage;
 
   test.beforeEach(async () => {
     browser = new BrowserWrapper();
   });
 
   test.afterEach(async () => {
+    const addressPage = await browser.createNewPage(AddressPage,urls.ui.addressPageUrl)
+    await addressPage.deleteAllAddress();
     await browser.closeBrowser();
   });
   
-  test('editing the address from the new address page', async ({page}) => {
-    addressPage = await browser.createNewPage(AddressPage);
-    await browser.navigateTo(urls.ui.newAddressUrl);
-    await addressPage.fillAddressData(first_name, last_name, city, street, house_num, mikood, phone);    
-    await addressPage.validateAddressChanged();
-    await page.waitForURL(urls.ui.addressPage);
-    expect(page.url()).toBe(urls.ui.addressPage);
+  test('Add new address via api -> validate address is added via ui', async () => {
+    const addressPage = await browser.createNewPage(AddressPage, urls.ui.addressPageUrl);
+
+    const addAddressData = setAddAddressRequest(firstName,lastName,city,street,houseNumber,postCode,phone, countryId);
+    const apiCall = new ApiCalls();
+    await apiCall.AddNewAddress(addAddressData)
+
+    await addressPage.refreshPage()    
+    await expect(addressPage.validateAddressChanged()).toBeVisible()
+    
   });
 });

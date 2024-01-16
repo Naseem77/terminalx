@@ -13,7 +13,7 @@ export class Category extends BasePage {
         await this.categoryLocator(categoryName).click();
 
     }
-    checkForCategory = async (category: string): Promise<boolean> => {
+    validateCategoryUrl = async (category: string): Promise<boolean> => {
         const url = this.page.url();
         return url.includes(category) ? true : false;
     }

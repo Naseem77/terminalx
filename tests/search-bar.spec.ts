@@ -5,25 +5,27 @@ import config from "../config/urls.json";
 
 test.describe('Search For Items In SearchBar', () => {
     let browser: BrowserWrapper
-    let search: SearchItems;
+    let searchPage: SearchItems;
+
     test.beforeEach(async () => {
         browser = new BrowserWrapper();
     });
+
     test.afterEach(async () => {
         await browser.closeBrowser();
     });
+
     const searchData = [
         { searchItem: 'טי שירט ריצה Nike Miler Flash', expected: 'טי שירט ריצה Nike Miler Flash' },
         { searchItem: 'סניקרס עור BB550VGA / גברים', expected: 'סניקרס עור BB550VGA / גברים' },
         { searchItem: 'חולצת טטרה עם כפתורים / 5Y-14Y', expected: 'חולצת טטרה עם כפתורים / 5Y-14Y' }
     ];
+
     searchData.forEach(({ searchItem, expected }) => {
         test(`search for ${searchItem} -> validate results as the ${expected} `, async () => {
-            search = await browser.createNewPage(SearchItems)
-            await browser.navigateTo(config.ui.url)
-            await search.fillSearchProcess(searchItem, searchItem);
-            await expect(await search.getSearchTitle(expected)).toBeVisible()
-
+            searchPage = await browser.createNewPage(SearchItems, config.ui.url)
+            await searchPage.fillSearchProcess(searchItem, searchItem);
+            await expect(searchPage.getSearchTitle(expected)).toBeVisible()
         });
     })
 })

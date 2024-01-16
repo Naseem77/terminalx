@@ -11,7 +11,7 @@ export class BasePage {
         await this.page.waitForLoadState()
     }
 
-    async getCurrentURL(): Promise<string> {
+    getCurrentURL() : string {
         return this.page.url();
     }
 

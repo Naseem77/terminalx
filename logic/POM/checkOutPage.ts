@@ -1,6 +1,6 @@
 import {type Locator, type Page } from '@playwright/test';
 import { BasePage } from '../../infra/ui/BasePage';
-import { waitForElementToBeVisible, waitForTimeOut } from '../../infra/utils';
+import { waitForElementToBeVisible } from '../../infra/utils';
 
 export class CheckOutPage extends BasePage {
 
@@ -12,6 +12,7 @@ export class CheckOutPage extends BasePage {
         super(page);
         this.cartItems = this.page.locator("//div[@class='cart-items-list_wmqo']/div")
         this.deleteItemButton = this.page.locator("//button[@class='tx-link-a icon_u36n remove_wqPe tx-link_29YD']")
+        this.cartEmptyMessage = this.page.locator("//p[text()='סל הקניות שלך ריק.']")
         this.initPage();
     }
     
@@ -35,8 +36,6 @@ export class CheckOutPage extends BasePage {
     }
 
     async validateCartEmptyMessage(){
-      this.cartEmptyMessage = this.page.locator("//p[text()='סל הקניות שלך ריק.']")
-      const res = await this.cartEmptyMessage.isVisible()
-      return res
+      return await this.cartEmptyMessage.isVisible()
     }
 }
