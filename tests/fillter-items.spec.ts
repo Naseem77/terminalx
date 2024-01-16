@@ -25,10 +25,9 @@ test.describe('Filter Items Validation', () => {
 
     filterData.forEach(({ filter, expected }) => {
         test(`filter items from shirts page -> check that ${filter} same as ${expected}`, async () => {
-            filterItemPage = await browser.createNewPage(FilterItemsPage)
-            await browser.navigateTo(urls.ui.menShirtsUrl)
+            filterItemPage = await browser.createNewPage(FilterItemsPage, urls.ui.menShirtsUrl)
             await filterItemPage.filterBy(filter);
-            expect(filterItemPage.checkForFilter(expected)).toBeTruthy();
+            expect(filterItemPage.validateFilterUrl(expected)).toBeTruthy();
 
         });
     });

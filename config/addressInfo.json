@@ -1,9 +1,10 @@
 {
-    "first_name": "moshe",
-    "last_name": "kohen",
+    "firstName": "naseem",
+    "lastName": "ali",
     "city": "ירושלים",
     "street": "בק",
-    "house_num": "21",
-    "mikood": "9100000",
-    "phone": "0524789652"
+    "houseNumber": "21",
+    "postCode": "9100000",
+    "phone": "0524789652",
+    "countryId": "IL"
 }

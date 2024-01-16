@@ -9,15 +9,13 @@ import {MainPage} from '../logic/POM/MainPage'
 
 test.describe('Cart Items Tests', () => {
   let browser: BrowserWrapper;
-  let apiCall: ApiCalls;
-  let favoritesListPage: FavoritesListPage;
-  let mainPage: MainPage;
 
   test.beforeEach(async () => {
     browser = new BrowserWrapper();
-    apiCall = new ApiCalls();
-    mainPage = await browser.createNewPage(MainPage)
-    await browser.navigateTo(urls.ui.shoesProductPageUrl)
+  });
+
+  test.beforeEach(async () => {
+    const mainPage = await browser.createNewPage(MainPage, urls.ui.shoesProductPageUrl)
     await mainPage.addItemToFavorits();
   });
 
@@ -26,15 +24,13 @@ test.describe('Cart Items Tests', () => {
   });
 
   test('remove Item from Favorites via API -> validate item removed via ui', async () => {
-    favoritesListPage = await browser.createNewPage(FavoritesListPage)
-    await browser.navigateTo(urls.ui.wishListUrl)
+    const favoritesListPage = await browser.createNewPage(FavoritesListPage, urls.ui.wishListUrl)
     const removeItemData = setRemoveItemToFavoritestRequest(removeItem2Fav);
-    
-    const response = await apiCall.RemoveItemFromFavorites(removeItemData);
+    const apiCall = new ApiCalls();
+    await apiCall.RemoveItemFromFavorites(removeItemData);
     await favoritesListPage.refreshPage()
-    expect(0).toBe(response?.data.removeProductsFromAnyWishlistById.anyWishlist.items_count)
+    expect(await favoritesListPage.validateCartEmptyMessage()).toBeFalsy()
 
   });
-
 
 });

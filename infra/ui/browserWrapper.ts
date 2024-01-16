@@ -6,7 +6,7 @@ export class BrowserWrapper {
     private context: BrowserContext | null = null;
     private page: Page | null = null;
 
-    async createNewPage<T extends BasePage>(pageClass: new (page: Page) => T) {
+    async createNewPage<T extends BasePage>(pageClass: new (page: Page) => T, url?: string) {
         if (!this.browser) {
             this.browser = await chromium.launch();
         }
@@ -15,6 +15,9 @@ export class BrowserWrapper {
         }
         if (!this.page) {
             this.page = await this.context.newPage();
+        }
+        if (url) {
+            await this.navigateTo(url)
         }
 
         const pageInstance = new pageClass(this.page);
@@ -26,12 +29,7 @@ export class BrowserWrapper {
         }
         return this.page;
     }
-    async reloadPage() {
-        if (!this.page) {
-            throw new Error('Browser is not launched yet!.');
-        }
-        await this.page.reload();
-    }
+
     async setPageToFullScreen() {
         if (!this.page) {
             throw new Error('Browser is not launched yet!');

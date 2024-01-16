@@ -2,7 +2,8 @@
     "api": {
         "CartApiUrl": "https://www.terminalx.com/pg/MutationAddAnyProductsToAnyCart?v=t4MeNg4Nhm8cTtfc8ZbCpP00Dzo%3D",
         "AddItemToWishListApiUrl": "https://www.terminalx.com/pg/MutationAddProductsToWishlist?v=o%2Fi6SZVDy2k6kuJd8zRFtjUC6Hs%3D",
-        "RemoveItemFromWishListApiUrl": "https://www.terminalx.com/pg/MutationRemoveProductsFromAnyWishlistById?v=h287aaTZzqucFBm5bEc305ztqE8%3D"
+        "RemoveItemFromWishListApiUrl": "https://www.terminalx.com/pg/MutationRemoveProductsFromAnyWishlistById?v=h287aaTZzqucFBm5bEc305ztqE8%3D",
+        "AddNewAddressApiUrl": "https://www.terminalx.com/pg/MutationCreateCustomerAddress?v=7M21Ktwz3hl5WT0GoUlh5nBYIc4%3D"
     },
     "ui": {
         "url": "https://www.terminalx.com",
@@ -10,13 +11,9 @@
         "loginUrl": "https://www.terminalx.com/pg/MutationUserLogin",
         "wishListUrl": "https://www.terminalx.com/wishlist/items",
         "menShirtsUrl": "https://www.terminalx.com/men/shirts",
-       "shirtProductPageUrl": "https://www.terminalx.com/men/shirts/z104765410?color=9014",
-        "newAddressUrl": "https://www.terminalx.com/customer/address/new",
+        "shirtProductPageUrl": "https://www.terminalx.com/men/shirts/z104765410?color=9014",
         "shoesProductPageUrl": "https://www.terminalx.com/x967010001?color=4",
-        "checkPricePAge": "https://www.terminalx.com/checkout/cart",
-        "addressPage": "https://www.terminalx.com/customer/address/?limit=10",
-        "shoesProductPageUrl": "https://www.terminalx.com/x967010001?color=4"
- 
+        "addressPageUrl": "https://www.terminalx.com/customer/address/?limit=10"
     },
     "categorys": {
         "JustLanded": "/justlanded",
@@ -28,6 +25,6 @@
         "sports": "/sports",
         "beauty": "/beauty",
         "home-lifestyle": "/home-lifestyle",
-        "premium": "/premium"      
+        "premium": "/premium"
     }
 }

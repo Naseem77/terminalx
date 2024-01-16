@@ -8,24 +8,17 @@ import { ApiCalls } from '../logic/api/apiCalls';
 
 test.describe('Cart Items Tests', () => {
   let browser: BrowserWrapper;
-  let apiCall: ApiCalls;
-  let checkoutPage: CheckOutPage;
-
-  test.beforeEach(async () => {
-    browser = new BrowserWrapper();
-    apiCall = new ApiCalls();
-  });
 
   test.afterEach(async () => {
-    await browser.navigateTo(urls.ui.CartUrl)
     await browser.closeBrowser();
   });
   
   test('Adding one Item to cart via API -> remove and validate items in cart via ui', async () => {
-    checkoutPage = await browser.createNewPage(CheckOutPage)
-    await browser.navigateTo(urls.ui.CartUrl)
+    browser = new BrowserWrapper();
+    const checkoutPage = await browser.createNewPage(CheckOutPage, urls.ui.CartUrl)
 
     const addItemData2 = setAddItemToCartRequest(item2ToCart);
+    const apiCall = new ApiCalls();
     await apiCall.addItemToCart(addItemData2);
 
     await checkoutPage.refreshPage()

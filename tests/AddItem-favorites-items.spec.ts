@@ -8,28 +8,26 @@ import { ApiCalls } from '../logic/api/apiCalls';
 
 test.describe('Cart Items Tests', () => {
   let browser: BrowserWrapper;
-  let apiCall: ApiCalls;
-  let favoritesListPage: FavoritesListPage;
 
   test.beforeEach(async () => {
     browser = new BrowserWrapper();
-    apiCall = new ApiCalls();
   });
 
   test.afterEach(async () => {
-    await browser.navigateTo(urls.ui.wishListUrl)
+    const favoritesListPage = await browser.createNewPage(FavoritesListPage, urls.ui.wishListUrl)
     await favoritesListPage.deleteAllFavoriteItems()
     await browser.closeBrowser();
   });
 
   test('Add Item to Favorites via API -> validation item in cart via ui', async () => {
-    favoritesListPage = await browser.createNewPage(FavoritesListPage)
-    await browser.navigateTo(urls.ui.wishListUrl)
+    browser = new BrowserWrapper();
+    const favoritesListPage = await browser.createNewPage(FavoritesListPage, urls.ui.wishListUrl)
+ 
     const addItemData = setAddItemToFavoritestRequest(addItem2Fav);
-    
+    const apiCall = new ApiCalls();
     const response = await apiCall.AddItemtoFavorites(addItemData);
     await favoritesListPage.refreshPage()
-    expect(await favoritesListPage.getItemsCount()).toBe(response.data.addProductsToWishlist.anyWishlist.items_count)
+    expect(1).toBe(await favoritesListPage.getItemsCount())
 
   });
 
