@@ -3,7 +3,6 @@ import { BrowserWrapper } from '../infra/ui/browserWrapper'
 import urls from '../config/urls.json'
 import { AddressPage } from '../logic/POM/addressPage';
 import {first_name, last_name, city, street, house_num, mikood, phone} from "../config/addressInfo.json";
-import { waitForTimeOut } from '../infra/utils';
 
 test.describe('address page tests', () => {
   let browser: BrowserWrapper;

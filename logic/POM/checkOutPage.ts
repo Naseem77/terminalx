@@ -1,6 +1,6 @@
 import {type Locator, type Page } from '@playwright/test';
 import { BasePage } from '../../infra/ui/BasePage';
-import { waitForElementToBeVisible, waitForTimeOut } from '../../infra/utils';
+import { waitForElementToBeVisible } from '../../infra/utils';
 
 export class CheckOutPage extends BasePage {
 

@@ -2,7 +2,6 @@ import { Locator, Page, expect } from '@playwright/test';
 import { BasePage } from '../../infra/ui/BasePage';
 import { waitForTimeOut } from '../../infra/utils';
 
-
 export class NavBar extends BasePage {
 
     private connectAccBtn: Locator;
