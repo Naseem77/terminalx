@@ -4,8 +4,8 @@ import { BasePage } from '../../infra/ui/BasePage';
 export class SearchItems extends BasePage {
     private searchBarBtn: Locator;
     private searchBarInput: Locator;
-    private searchResult = (search: string) =>
-        this.page.locator(`//h1[contains(text(),"${search}")]`)
+    private searchResult = (search: string) => this.page.locator(`//h1[contains(text(),"${search}")]`)
+    private searchResultBtn = (searchResultview: string) => this.page.locator(`//a[contains(text(),"${searchResultview}")]`);
 
     constructor(page: Page) {
         super(page)
@@ -18,8 +18,7 @@ export class SearchItems extends BasePage {
     fillSearchProcess = async (searchBarInput: string, searchResultview: string) => {
         await this.searchBarBtn.click();
         await this.searchBarInput.fill(searchBarInput)
-        const searchResultBtn = this.page.locator(`//a[contains(text(),"${searchResultview}")]`);///must change
-        await searchResultBtn.click();
+        await this.searchResultBtn(searchResultview).click();
     }
 
     getSearchTitle = (search: string) : Locator => {
