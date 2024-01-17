@@ -5,7 +5,7 @@ Complete E2E test plan & automated sanity for TerminalX website. Including infra
 ## It includes:
 
 - Automation tests with playwright
-- infrastructure built from scrach
+- infrastructure built from scratch
 - UI tests
 - Reporting with allure
 - API tests
