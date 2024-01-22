@@ -35,7 +35,7 @@ export class CheckOutPage extends BasePage {
         }
     }
 
-    async validateCartEmptyMessage(){
+    async getCartEmptyMessage(){
       return await this.cartEmptyMessage.isVisible()
     }
 }
