@@ -1,4 +1,4 @@
-import { APIRequestContext, APIResponse, request } from "@playwright/test"
+import { APIRequestContext, request } from "@playwright/test"
 
 
 const putRequest = async<T> (url : string, data : any) => {

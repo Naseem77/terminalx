@@ -1,8 +1,8 @@
 import { Locator, Page } from '@playwright/test';
-import { NavBar } from './navBar';
 import { waitForElementToBeVisible } from '../../infra/utils';
+import { BasePage } from '../../infra/ui/BasePage';
 
-export class MainPage extends NavBar {
+export class MainPage extends BasePage {
 
     private favoritsBtn: Locator;
 
@@ -10,14 +10,6 @@ export class MainPage extends NavBar {
         super(page);
         this.initPage();
         this.favoritsBtn = page.locator("//button[@class='toggle_3KGH rtl_fPrD']");
-    }
-
-    removeItemFromCart = async () => {
-        return await this.removeItem();
-    }
-
-    getItemCountInCart = async () => {
-        return await this.getItemCount();
     }
 
     addItemToFavorits = async () => {

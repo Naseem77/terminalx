@@ -35,7 +35,7 @@ export class FavoritesListPage extends BasePage {
         }
     }
 
-    async validateCartEmptyMessage(){
+    async cartEmptyMessage(){
       return await this.favoritesFirstItem.isVisible()
     }
 }

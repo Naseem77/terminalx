@@ -29,7 +29,7 @@ test.describe('Cart Items Tests', () => {
     const apiCall = new ApiCalls();
     await apiCall.RemoveItemFromFavorites(removeItemData);
     await favoritesListPage.refreshPage()
-    expect(await favoritesListPage.validateCartEmptyMessage()).toBeFalsy()
+    expect(await favoritesListPage.cartEmptyMessage()).toBeFalsy()
 
   });
 

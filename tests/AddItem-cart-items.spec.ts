@@ -8,7 +8,7 @@ import { ApiCalls } from '../logic/api/apiCalls';
 
 test.describe('Cart Items Tests', () => {
   let browser: BrowserWrapper;
-
+  
   test.afterEach(async () => {
     const checkoutPage = await browser.createNewPage(CheckOutPage,urls.ui.CartUrl)
     await checkoutPage.deleteAllCartItems();

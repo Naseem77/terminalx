@@ -24,7 +24,7 @@ test.describe('Cart Items Tests', () => {
     await checkoutPage.refreshPage()
     await checkoutPage.deleteAllCartItems()
     
-    expect((await checkoutPage.validateCartEmptyMessage()).valueOf()).toBeFalsy()
+    expect((await checkoutPage.getCartEmptyMessage()).valueOf()).toBeFalsy()
 
   });
 
